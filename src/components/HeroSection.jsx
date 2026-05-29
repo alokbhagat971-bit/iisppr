@@ -6,16 +6,22 @@ const css = `
   .hs-wrap {
     position: relative;
     width: 100%;
-    height: 90vh;
-    max-height: 90vh;
+    min-height: 100vh;
+    min-height: 100dvh;
     overflow: hidden;
     background: #02060B;
   }
   @media (max-width: 768px) {
-    .hs-wrap { height: 75vh; max-height: 75vh; }
+    .hs-wrap {
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
   }
   @media (max-width: 480px) {
-    .hs-wrap { height: 60vh; max-height: 60vh; }
+    .hs-wrap {
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
   }
 `;
 

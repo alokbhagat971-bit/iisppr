@@ -192,13 +192,175 @@ const css = `
   .ht-cta-arr { font-size: 16px; transition: transform .28s; }
   .ht-cta:hover .ht-cta-arr { transform: translateX(5px); }
 
-  /* ── Responsive ──────────────────────────────────────────────── */
-  @media (max-width: 900px) {
-    .ht-root { padding: 0 clamp(24px, 6vw, 60px) !important; }
+  /* ── Root layout ─────────────────────────────────────────────── */
+  .ht-root {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 clamp(48px, 9vw, 150px);
+    padding-top: 90px;
+    pointer-events: none;
+    z-index: 8;
+    box-sizing: border-box;
   }
-  @media (max-width: 600px) {
-    .ht-badge  { font-size: 9.5px; padding: 4px 12px; }
-    .ht-cta    { padding: 11px 26px; font-size: 11.5px; }
+
+  .ht-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(8px, 2vh, 24px);
+    max-width: 860px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .ht-title-excellence {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(18px, 2.6vw, 36px);
+    font-weight: 600;
+    letter-spacing: -.01em;
+    line-height: 1.2;
+  }
+
+  .ht-title-iisppr {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(52px, 8.5vw, 96px);
+    font-weight: 900;
+    letter-spacing: -.03em;
+    line-height: .95;
+  }
+
+  .ht-title-fellowship {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(22px, 3.6vw, 48px);
+    font-weight: 700;
+    letter-spacing: -.02em;
+    line-height: 1.1;
+    margin-top: -4px;
+  }
+
+  .ht-subtext {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(13px, 1.2vw, 15.5px);
+    font-weight: 400;
+    color: #8A919B;
+    line-height: 1.8;
+    max-width: 460px;
+    margin: 0;
+  }
+
+  /* ── Tablet (max 1024px) ──────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .ht-root {
+      min-height: 100vh;
+      min-height: 100dvh;
+      padding: 92px 56px 92px;
+      align-items: center;
+    }
+    .ht-content {
+      gap: clamp(6px, 1.5vh, 18px);
+      max-width: min(760px, 100%);
+    }
+    .ht-title-iisppr {
+      font-size: clamp(48px, 8vw, 80px);
+    }
+    .ht-title-fellowship {
+      font-size: clamp(20px, 3.2vw, 40px);
+    }
+    .ht-cta {
+      position: absolute;
+      left: 50%;
+      bottom: max(28px, calc(env(safe-area-inset-bottom) + 28px));
+      width: min(420px, calc(100vw - 64px));
+      justify-content: center;
+      box-sizing: border-box;
+      margin-top: 0 !important;
+      translate: -50% 0;
+      z-index: 12;
+    }
+    .ht-cta:hover {
+      translate: -50% -2px;
+      transform: scale(1.02);
+    }
+  }
+
+  /* ── Mobile (max 768px) ──────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .ht-root {
+      min-height: 100vh;
+      min-height: 100dvh;
+      padding: 82px 40px 92px;
+      align-items: center;
+    }
+    .ht-content {
+      gap: 10px;
+      max-width: 100%;
+    }
+    .ht-badge {
+      font-size: 9px;
+      padding: 4px 11px;
+      letter-spacing: .10em;
+    }
+    .ht-title-excellence {
+      font-size: clamp(15px, 4.5vw, 22px);
+    }
+    .ht-title-iisppr {
+      font-size: clamp(40px, 12vw, 64px);
+    }
+    .ht-title-fellowship {
+      font-size: clamp(18px, 5.5vw, 30px);
+      margin-top: -2px;
+    }
+    .ht-subtext {
+      font-size: 13px;
+      max-width: 100%;
+      line-height: 1.6;
+    }
+    .ht-cta {
+      width: calc(100vw - 40px);
+      padding: 11px 24px;
+      font-size: 11px;
+    }
+    .ht-divider {
+      max-width: 200px;
+    }
+  }
+
+  /* ── Small mobile (max 480px) ────────────────────────────────── */
+  @media (max-width: 480px) {
+    .ht-root {
+      padding: 76px 40px 88px;
+    }
+    .ht-content {
+      gap: 8px;
+    }
+    .ht-title-iisppr {
+      font-size: clamp(36px, 13vw, 52px);
+    }
+    .ht-title-fellowship {
+      font-size: clamp(16px, 5.8vw, 26px);
+    }
+    .ht-title-excellence {
+      font-size: clamp(13px, 4vw, 18px);
+    }
+    .ht-subtext {
+      font-size: 12px;
+    }
+    .ht-cta {
+      width: calc(100vw - 32px);
+      padding: 10px 20px;
+      font-size: 10.5px;
+      gap: 7px;
+    }
+    .ht-badge {
+      font-size: 8.5px;
+      padding: 4px 10px;
+    }
   }
 `;
 
@@ -250,34 +412,8 @@ export default function HeroText() {
     <>
       <style>{css}</style>
 
-      
-        <div
-          className="ht-root"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            display: "flex",
-            alignItems: "center",         // vertically center the text beautifully
-            justifyContent: "flex-start",
-            padding: "0 clamp(48px, 9vw, 150px)",
-            paddingTop: "90px",           // safety spacing for the fixed navbar
-            pointerEvents: "none",
-            zIndex: 8,
-          }}
-        >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            gap: "clamp(8px, 2vh, 24px)",
-            maxWidth: 860,
-            width: "100%",
-          }}
-        >
+      <div className="ht-root">
+        <div className="ht-content">
 
           {/* ── Badge ── */}
           {active && (
@@ -289,15 +425,7 @@ export default function HeroText() {
 
           {/* ── "Excellence in Research" — GOLD SHIMMER MASK ── */}
           {active && (
-            <div
-              style={{
-                fontFamily: "'Sora', sans-serif",
-                fontSize: "clamp(18px, 2.6vw, 36px)",
-                fontWeight: 600,
-                letterSpacing: "-.01em",
-                lineHeight: 1.2,
-              }}
-            >
+            <div className="ht-title-excellence">
               <AnimatedWords
                 text="Excellence in Research"
                 baseDelay={0.25}
@@ -313,15 +441,7 @@ export default function HeroText() {
 
           {/* ── "IISPPR" — CYAN LIGHT SWEEP MASK, char by char ── */}
           {active && (
-            <div
-              style={{
-                fontFamily: "'Sora', sans-serif",
-                fontSize: "clamp(52px, 8.5vw, 96px)",
-                fontWeight: 900,
-                letterSpacing: "-.03em",
-                lineHeight: .95,
-              }}
-            >
+            <div className="ht-title-iisppr">
               <AnimatedChars
                 text="IISPPR"
                 baseDelay={1.05}
@@ -332,16 +452,7 @@ export default function HeroText() {
 
           {/* ── "Field & Research Fellowship" — WHITE FADE MASK ── */}
           {active && (
-            <div
-              style={{
-                fontFamily: "'Sora', sans-serif",
-                fontSize: "clamp(22px, 3.6vw, 48px)",
-                fontWeight: 700,
-                letterSpacing: "-.02em",
-                lineHeight: 1.1,
-                marginTop: "-4px",
-              }}
-            >
+            <div className="ht-title-fellowship">
               <AnimatedWords
                 text="Field & Research Fellowship"
                 baseDelay={1.7}
@@ -353,17 +464,8 @@ export default function HeroText() {
           {/* ── Sub-text ── */}
           {active && (
             <p
-              className="ht-fu"
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: "clamp(13px, 1.2vw, 15.5px)",
-                fontWeight: 400,
-                color: "#8A919B",
-                lineHeight: 1.8,
-                maxWidth: 460,
-                margin: 0,
-                animationDelay: "1.9s",
-              }}
+              className="ht-fu ht-subtext"
+              style={{ animationDelay: "1.9s" }}
             >
               Shape the future with data-driven insights.
             </p>

@@ -128,8 +128,8 @@ export default function Slider() {
       <style>{`
         .slider-root {
           width: 100%;
-          height: 90vh;
-          max-height: 90vh;
+          min-height: 100vh;
+          min-height: 100dvh;
           background-color: #02060B;
           overflow: hidden;
         }
@@ -137,8 +137,8 @@ export default function Slider() {
         .slider-slider {
           position: relative;
           width: 100%;
-          height: 90vh;
-          max-height: 90vh;
+          min-height: 100vh;
+          min-height: 100dvh;
           overflow: hidden;
           background-color: #02060B;
         }
@@ -147,7 +147,8 @@ export default function Slider() {
         .slider-slide-bg {
           position: absolute;
           inset: 0;
-          background-size: 110% auto;
+          background-size: cover;
+          background-position: center;
           background-repeat: no-repeat;
           will-change: opacity;
           transition: opacity ${TRANSITION_MS}ms cubic-bezier(0.45, 0, 0.55, 1);
@@ -305,34 +306,104 @@ export default function Slider() {
         .slider-counter-total   { font-size: 0.72rem; color: #8A919B; }
 
         /* ── Responsive ── */
+        @media (max-width: 1024px) {
+          .slider-root,
+          .slider-slider {
+            min-height: 100vh;
+            min-height: 100dvh;
+          }
+
+          .slider-slide-bg {
+            background-size: cover;
+            background-position: center;
+          }
+
+          .slider-arrow {
+            width: 40px;
+            height: 40px;
+          }
+          .slider-arrow--left  { left: 14px; }
+          .slider-arrow--right { right: 14px; }
+
+          .slider-dots {
+            bottom: clamp(22px, 4dvh, 38px);
+          }
+
+          .slider-counter {
+            bottom: clamp(24px, 4dvh, 40px);
+            right: 20px;
+          }
+        }
+
         @media (max-width: 768px) {
-          .slider-slider { height: 75vh; max-height: 75vh; }
-          .slider-arrow { width: 38px; height: 38px; }
-          .slider-arrow--left  { left: 10px; }
-          .slider-arrow--right { right: 10px; }
+          .slider-root,
+          .slider-slider {
+            min-height: 100vh;
+            min-height: 100dvh;
+          }
+
+          .slider-slide-bg {
+            background-size: cover;
+            background-position: center;
+          }
+
+          .slider-arrow {
+            width: 36px;
+            height: 36px;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+          .slider-arrow--left  { left: 10px; right: auto; }
+          .slider-arrow--right { right: 10px; left: auto; }
+
+          .slider-dots {
+            bottom: max(18px, env(safe-area-inset-bottom));
+          }
+
+          .slider-counter {
+            bottom: max(20px, calc(env(safe-area-inset-bottom) + 2px));
+            right: auto;
+            left: 16px;
+          }
+
           .slider-overlay-left {
-            width: 85%;
+            width: 90%;
             background: linear-gradient(
               to right,
-              #02060B        0%,
-              #02060B        30%,
-              rgba(2,6,11,0.88) 50%,
-              rgba(2,6,11,0.50) 70%,
-              transparent    100%
+              #02060B           0%,
+              #02060B           20%,
+              rgba(2,6,11,0.92) 38%,
+              rgba(2,6,11,0.65) 58%,
+              rgba(2,6,11,0.20) 80%,
+              transparent       100%
             );
           }
         }
+
         @media (max-width: 480px) {
-          .slider-slider { height: 60vh; max-height: 60vh; }
+          .slider-root,
+          .slider-slider {
+            min-height: 100vh;
+            min-height: 100dvh;
+          }
+
+          .slider-arrow {
+            width: 32px;
+            height: 32px;
+          }
+          .slider-arrow--left  { left: 8px; right: auto; }
+          .slider-arrow--right { right: 8px; left: auto; }
+
           .slider-overlay-left {
             width: 100%;
             background: linear-gradient(
               to right,
-              #02060B        0%,
-              #02060B        25%,
-              rgba(2,6,11,0.85) 55%,
-              rgba(2,6,11,0.40) 80%,
-              transparent    100%
+              #02060B           0%,
+              #02060B           15%,
+              rgba(2,6,11,0.90) 40%,
+              rgba(2,6,11,0.55) 65%,
+              rgba(2,6,11,0.15) 85%,
+              transparent       100%
             );
           }
         }
