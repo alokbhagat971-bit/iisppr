@@ -128,8 +128,8 @@ export default function Slider() {
       <style>{`
         .slider-root {
           width: 100%;
-          height: 65vh;
-          max-height: 65vh;
+          height: 90vh;
+          max-height: 90vh;
           background-color: #02060B;
           overflow: hidden;
         }
@@ -137,8 +137,8 @@ export default function Slider() {
         .slider-slider {
           position: relative;
           width: 100%;
-          height: 65vh;
-          max-height: 65vh;
+          height: 90vh;
+          max-height: 90vh;
           overflow: hidden;
           background-color: #02060B;
         }
@@ -306,7 +306,7 @@ export default function Slider() {
 
         /* ── Responsive ── */
         @media (max-width: 768px) {
-          .slider-slider { height: 50vh; max-height: 50vh; }
+          .slider-slider { height: 75vh; max-height: 75vh; }
           .slider-arrow { width: 38px; height: 38px; }
           .slider-arrow--left  { left: 10px; }
           .slider-arrow--right { right: 10px; }
@@ -323,7 +323,7 @@ export default function Slider() {
           }
         }
         @media (max-width: 480px) {
-          .slider-slider { height: 42vh; max-height: 42vh; }
+          .slider-slider { height: 60vh; max-height: 60vh; }
           .slider-overlay-left {
             width: 100%;
             background: linear-gradient(

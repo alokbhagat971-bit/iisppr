@@ -255,19 +255,19 @@ export default function HeroText() {
           className="ht-root"
           style={{
             position: "absolute",
-            top: "60px",
+            top: 0,
             left: 0,
             right: 0,
             bottom: 0,
             display: "flex",
-            alignItems: "flex-start",     // keep top-aligned
+            alignItems: "center",         // vertically center the text beautifully
             justifyContent: "flex-start",
             padding: "0 clamp(48px, 9vw, 150px)",
-            paddingTop: "clamp(20px, 5vh, 60px)",   // ← add this
+            paddingTop: "90px",           // safety spacing for the fixed navbar
             pointerEvents: "none",
             zIndex: 8,
           }}
-              >
+        >
         <div
           style={{
             display: "flex",
