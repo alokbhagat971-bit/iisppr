@@ -10,17 +10,16 @@ import {
   Users,
 } from "lucide-react";
 
-import Navbar     from "../components/Navbar";
-import PillarCard from "../components/PillarCard";
-import FloatIcon  from "../components/FloatIcon";
-import earthBg from "../images/globe.png";
-import { CARDS } from "../data/cards";
+import PillarCard from "./courseDifferent/PillarCard";
+import FloatIcon  from "./courseDifferent/FloatIcon";
+import earthBg from "../assets/globe.png";
+import { CARDS } from "./courseDifferent/data/cards";
 
 // When you have earth-bg.png, uncomment:
 // import earthBg from "../images/earth-bg.png";
 
-import "../styles/global.css";
-import "../styles/CourseDifferentPage.css";
+import './courseDifferent/styles/global.css';
+import './courseDifferent/styles/CourseDifferentPage.css';
 
 const fadeUp = {
   hidden:  { opacity: 0, y: 30 },
@@ -76,6 +75,17 @@ const FLOAT_ICONS = [
   },
 ];
 
+const MARQUEE_ITEMS = [
+  { label: "Critical Thinking",       color: "#e8a020" },
+  { label: "Data Literacy",           color: "#f5c518" },
+  { label: "Global Perspective",      color: "#00d4c8" },
+  { label: "Problem Solving",         color: "#bf7aff" },
+  { label: "Communication Skills",    color: "#e8a020" },
+  { label: "Industry Mentors",        color: "#f5c518" },
+  { label: "Capstone Projects",       color: "#00d4c8" },
+  { label: "Certificate of Excellence", color: "#bf7aff" },
+];
+
 const PARTICLES = [
   { left: "10%", top: "18%", duration: "8s",  delay: "0s"   },
   { left: "20%", top: "68%", duration: "11s", delay: "1.2s" },
@@ -95,8 +105,21 @@ const PARTICLES = [
 
 export default function CourseDifferentPage() {
   return (
+    
     <>
-      <Navbar />
+    
+      {/* ── MARQUEE ──────────────────────────────────────── */}
+      <div className="marquee-section" aria-hidden="true">
+        <div className="marquee-track">
+          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map(({ label, color }, i) => (
+            <span key={i} className="marquee-item">
+              <span className="marquee-item__dot" style={{ background: color }} />
+              {label}
+            </span>
+          ))}
+        </div>
+      </div>
+         
 
       <div className="page">
 
@@ -228,6 +251,7 @@ export default function CourseDifferentPage() {
 
         </div>
       </div>
+
     </>
   );
 }

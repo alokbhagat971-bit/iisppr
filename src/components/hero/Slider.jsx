@@ -1,9 +1,9 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import img1 from '../assets/img1.jpg';
-import img2 from '../assets/img2.jpg';
-import img3 from '../assets/img3.jpg';
-import img4 from '../assets/img4.jpeg';
-import img5 from '../assets/img5.jpeg';
+import img1 from '../../assets/img1.jpg';
+import img2 from '../../assets/img2.jpg';
+import img3 from '../../assets/img3.jpg';
+import img4 from '../../assets/img4.jpeg';
+import img5 from '../../assets/img5.jpeg';
 
 const SLIDES = [
   { image: img1, position: '45% center' },

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { X, Landmark, Search, FileText, Layers, Info } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { X, FileText, Layers, Info, MessageSquare, HelpCircle } from 'lucide-react';
 import logo from "../assets/logo.png";
 
 /**
@@ -11,10 +11,10 @@ export default function Navbar({
   logoSubtext = "Policy Institute",
 
   links = [
-    { name: 'About', href: '#about' },
-    { name: 'Faculty', href: '#faculty' },
+    { name: 'About', href: '#whyus' },
     { name: 'Curriculum', href: '#curriculum' },
-    { name: 'Admissions', href: '#admissions' }
+    { name: 'Testimonials', href: '#testimonials' },
+    { name: 'FAQ', href: '#faq' }
   ],
 
   ctaText = "Login",
@@ -32,39 +32,7 @@ export default function Navbar({
 }) {
 
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
-
-  /**
-   * Scroll Effect
-   */
-  useEffect(() => {
-
-    let lastScrollY = window.scrollY;
-
-    const handleScroll = () => {
-
-      const currentScrollY = window.scrollY;
-
-      setIsScrolled(currentScrollY > 40);
-
-      if (currentScrollY > lastScrollY && currentScrollY > 250) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-
-      lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-
-  }, []);
 
   /**
    * Active Section Highlight
@@ -168,14 +136,14 @@ export default function Navbar({
       case 'about':
         return <Info className="w-5 h-5 text-cyan-accent" />;
 
-      case 'faculty':
-        return <Search className="w-5 h-5 text-cyan-accent" />;
+      case 'testimonials':
+        return <MessageSquare className="w-5 h-5 text-cyan-accent" />;
 
       case 'curriculum':
         return <FileText className="w-5 h-5 text-cyan-accent" />;
 
-      case 'admissions':
-        return <Landmark className="w-5 h-5 text-gold-accent" />;
+      case 'faq':
+        return <HelpCircle className="w-5 h-5 text-gold-accent" />;
 
       default:
         return <Layers className="w-5 h-5 text-cyan-accent" />;
@@ -186,18 +154,10 @@ export default function Navbar({
     <>
       {/* Navbar */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ease-in-out ${
-          isScrolled
-            ? 'bg-bg-dark/85 backdrop-blur-md border-b border-border-dark py-3.5 shadow-[0_10px_30px_rgba(2,6,11,0.5)]'
-            : 'bg-transparent border-b border-transparent py-6'
-        } ${
-          isVisible
-            ? 'translate-y-0'
-            : '-translate-y-full'
-        }`}
+        className="absolute left-0 right-0 lg:left-1/2 lg:right-auto lg:-translate-x-1/2 lg:w-[92%] lg:max-w-6xl z-40 top-0 py-6 bg-transparent border-b border-transparent lg:top-8 lg:py-7 lg:bg-transparent lg:px-10"
       >
 
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+        <div className="w-full max-w-7xl mx-auto px-6 lg:px-0 flex items-center justify-between relative">
 
           {/* Logo */}
           <a
@@ -209,7 +169,7 @@ export default function Navbar({
             <img
               src={logo}
               alt="IISPPR Logo"
-              className="h-12 w-auto object-contain"
+              className="h-10 w-auto object-contain"
             />
 
             <div className="flex flex-col">
@@ -229,7 +189,7 @@ export default function Navbar({
           </a>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2">
 
             <ul className="flex items-center gap-8 list-none">
 
@@ -243,21 +203,19 @@ export default function Navbar({
                     <a
                       href={link.href}
                       onClick={(e) => handleLinkClick(e, link.href)}
-                      className={`group relative font-sans text-[0.93rem] font-medium tracking-wide py-2 transition-colors duration-300 focus:outline-none ${
-                        isActive
-                          ? 'text-cyan-accent'
-                          : 'text-muted-text hover:text-white-text'
-                      }`}
+                      className={`group relative font-sans text-[0.93rem] font-medium tracking-wide py-2 transition-colors duration-300 focus:outline-none ${isActive
+                        ? 'text-cyan-accent'
+                        : 'text-muted-text hover:text-white-text'
+                        }`}
                     >
 
                       {link.name}
 
                       <span
-                        className={`absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-cyan-accent to-gold-accent transition-all duration-300 ease-out ${
-                          isActive
-                            ? 'w-full'
-                            : 'w-0 hover:w-full group-hover:w-full'
-                        }`}
+                        className={`absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-cyan-accent to-gold-accent transition-all duration-300 ease-out ${isActive
+                          ? 'w-full'
+                          : 'w-0 hover:w-full group-hover:w-full'
+                          }`}
                         style={{ transformOrigin: 'center' }}
                       />
 
@@ -280,7 +238,7 @@ export default function Navbar({
 
               <button
                 onClick={onCtaClick}
-                className="hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-full font-sans text-xs font-bold uppercase tracking-widest text-bg-dark bg-cyan-accent border border-cyan-accent hover:bg-transparent hover:text-cyan-accent hover:shadow-[0_0_20px_rgba(0,213,224,0.45)] hover:-translate-y-[1px] active:translate-y-0 transition-all duration-300"
+                className="hidden lg:inline-flex items-center justify-center px-8 py-3 rounded-full font-sans text-xs font-bold uppercase tracking-[0.2em] text-cyan-accent border-2 border-cyan-accent/35 bg-cyan-accent/10 hover:bg-cyan-accent hover:text-bg-dark hover:border-cyan-accent hover:shadow-[0_0_30px_rgba(0,213,224,0.6)] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-300 cursor-pointer"
               >
                 {ctaText}
               </button>
@@ -290,7 +248,7 @@ export default function Navbar({
             {/* Mobile Hamburger */}
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className="md:hidden relative w-10 h-10 flex flex-col items-center justify-center rounded-full border border-border-dark bg-surface-dark/40 hover:bg-surface-dark/80 hover:border-cyan-accent/35 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-accent/50"
+              className="lg:hidden relative w-10 h-10 flex flex-col items-center justify-center rounded-full border border-border-dark bg-surface-dark/40 hover:bg-surface-dark/80 hover:border-cyan-accent/35 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-accent/50"
               aria-expanded={isMobileOpen}
               aria-label="Toggle navigation menu"
             >
@@ -298,27 +256,24 @@ export default function Navbar({
               <div className="w-5 h-3.5 flex flex-col justify-between">
 
                 <span
-                  className={`block h-[2px] w-5 bg-white-text rounded-full transition-all duration-300 ease-in-out transform ${
-                    isMobileOpen
-                      ? 'rotate-45 translate-y-[6px]'
-                      : ''
-                  }`}
+                  className={`block h-[2px] w-5 bg-white-text rounded-full transition-all duration-300 ease-in-out transform ${isMobileOpen
+                    ? 'rotate-45 translate-y-[6px]'
+                    : ''
+                    }`}
                 />
 
                 <span
-                  className={`block h-[2px] w-5 bg-white-text rounded-full transition-all duration-300 ease-in-out ${
-                    isMobileOpen
-                      ? 'opacity-0 scale-x-0'
-                      : ''
-                  }`}
+                  className={`block h-[2px] w-5 bg-white-text rounded-full transition-all duration-300 ease-in-out ${isMobileOpen
+                    ? 'opacity-0 scale-x-0'
+                    : ''
+                    }`}
                 />
 
                 <span
-                  className={`block h-[2px] w-5 bg-white-text rounded-full transition-all duration-300 ease-in-out transform ${
-                    isMobileOpen
-                      ? '-rotate-45 -translate-y-[6px]'
-                      : ''
-                  }`}
+                  className={`block h-[2px] w-5 bg-white-text rounded-full transition-all duration-300 ease-in-out transform ${isMobileOpen
+                    ? '-rotate-45 -translate-y-[6px]'
+                    : ''
+                    }`}
                 />
 
               </div>
@@ -333,11 +288,10 @@ export default function Navbar({
 
       {/* Mobile Drawer */}
       <div
-        className={`fixed inset-0 z-50 transition-opacity duration-300 md:hidden ${
-          isMobileOpen
-            ? 'opacity-100'
-            : 'opacity-0 pointer-events-none'
-        }`}
+        className={`fixed inset-0 z-50 transition-opacity duration-300 lg:hidden ${isMobileOpen
+          ? 'opacity-100'
+          : 'opacity-0 pointer-events-none'
+          }`}
         role="dialog"
         aria-modal="true"
         aria-label="Mobile Navigation Menu"
@@ -352,11 +306,10 @@ export default function Navbar({
 
         {/* Drawer */}
         <div
-          className={`absolute top-0 right-0 h-full w-full max-w-sm bg-surface-dark border-l border-border-dark p-6 shadow-2xl flex flex-col justify-between transition-transform duration-300 ease-out transform ${
-            isMobileOpen
-              ? 'translate-x-0'
-              : 'translate-x-full'
-          }`}
+          className={`absolute top-0 right-0 h-full w-full max-w-sm bg-surface-dark border-l border-border-dark p-6 shadow-2xl flex flex-col justify-between transition-transform duration-300 ease-out transform ${isMobileOpen
+            ? 'translate-x-0'
+            : 'translate-x-full'
+            }`}
         >
 
           <div>
@@ -402,11 +355,10 @@ export default function Navbar({
                     key={link.name}
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
-                    className={`flex items-center gap-4 px-4 py-3.5 rounded-xl border transition-all duration-200 ${
-                      isActive
-                        ? 'bg-border-dark/30 border-cyan-accent/20 text-white-text shadow-[0_2px_10px_rgba(0,213,224,0.05)]'
-                        : 'border-transparent text-muted-text hover:text-white-text hover:bg-border-dark/20'
-                    }`}
+                    className={`flex items-center gap-4 px-4 py-3.5 rounded-xl border transition-all duration-200 ${isActive
+                      ? 'bg-border-dark/30 border-cyan-accent/20 text-white-text shadow-[0_2px_10px_rgba(0,213,224,0.05)]'
+                      : 'border-transparent text-muted-text hover:text-white-text hover:bg-border-dark/20'
+                      }`}
                   >
 
                     {getMobileLinkIcon(link.name)}
