@@ -4,10 +4,10 @@ import { Brain, Globe, Rocket, MessageSquare } from "lucide-react";
 
 // ─── Local image imports ───────────────────────────────────────
 // Place these files in src/images/
-import brain    from "../images/brain.png";
-import earth    from "../images/earth.png";
-import computer from "../images/computer.png";
-import master   from "../images/master.png";
+import brain    from "../../../assets/brain.png";
+import earth    from "../../../assets/earth.png";
+import computer from "../../../assets/computer.png";
+import master   from "../../../assets/master.png";
 
 // ─── Background planet/earth arc image ───────────────────────
 // Place this file in src/images/ — it's the large glowing green

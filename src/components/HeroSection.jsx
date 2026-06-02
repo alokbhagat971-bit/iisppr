@@ -1,5 +1,5 @@
-import Slider   from './Slider';    
-import HeroText from './HeroText';  
+import Slider   from './hero/Slider';    
+import HeroText from './hero/HeroText';  
 
 
 const css = `

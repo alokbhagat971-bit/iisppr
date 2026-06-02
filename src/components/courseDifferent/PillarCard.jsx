@@ -4,7 +4,7 @@
 import { useState, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight } from "lucide-react";
-import "../styles/PillarCard.css";
+import "./styles/PillarCard.css";
 
 const cardVariants = {
   hidden:  { opacity: 0, y: 48, scale: 0.93 },

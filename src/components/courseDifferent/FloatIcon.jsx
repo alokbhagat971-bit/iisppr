@@ -2,7 +2,7 @@
 // Desktop-only floating icon blob with glowing stem.
 // Hidden on mobile via CSS class to prevent title overlap.
 import { motion } from "framer-motion";
-import "../styles/CourseDifferentPage.css";
+import './styles/CourseDifferentPage.css';
 
 export default function FloatIcon({
   children,
