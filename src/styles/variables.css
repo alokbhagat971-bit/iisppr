@@ -1,0 +1,57 @@
+/* ─────────────────────────────────────────────────────────
+   variables.css — Design tokens & CSS custom properties
+───────────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* ── Colors (matched to course-page-lake.vercel.app) ── */
+  --color-bg:           #080808;
+  --color-bg-2:         #0d0b06;
+  --color-card-bg:      rgba(255, 255, 255, 0.04);
+  --color-border:       rgba(255, 255, 255, 0.08);
+
+  /* Primary accent: amber/gold-orange */
+  --color-green:        #e8a020;
+  /* Secondary accent: teal/cyan */
+  --color-teal:         #00d4c8;
+  /* Kept yellow for CTA buttons */
+  --color-yellow:       #f5c518;
+  --color-blue:         #5b8fff;
+  --color-purple:       #bf7aff;
+
+  --color-text-primary: #ffffff;
+  --color-text-muted:   #b0b0b0;
+  --color-text-dim:     #8a8a8a;
+
+  /* ── Fonts ── */
+  --font-display: 'Outfit', sans-serif;
+  --font-body:    'Outfit', sans-serif;
+
+  /* ── Spacing ── */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-2xl: 56px;
+  --space-3xl: 80px;
+
+  /* ── Radii ── */
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-full: 999px;
+
+  /* ── Shadows ── */
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+
+  /* ── Transitions ── */
+  --transition-fast:   0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow:   0.5s ease;
+
+  /* ── Layout ── */
+  --max-width-page: 1280px;
+  --max-width-content: 1200px;
+}
