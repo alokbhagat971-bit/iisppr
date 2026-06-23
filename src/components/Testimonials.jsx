@@ -42,14 +42,14 @@ const styles = `
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg-color: #000000;
-  --cyan-glow: #00e5ff;
-  --lime-glow: #c8ff6b;
-  --card-bg: rgba(255, 255, 255, 0.03);
+  --bg-color: transparent;
+  --cyan-glow: #00c8f0;
+  --lime-glow: #7ee8fa;
+  --card-bg: rgba(255, 255, 255, 0.04);
   --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-secondary: rgba(255, 255, 255, 0.92);
   --star-color: #ffcc00;
-  --border-color: rgba(255, 255, 255, 0.05);
+  --border-color: rgba(255, 255, 255, 0.07);
   --card-gap: 28px;
 }
 
@@ -61,7 +61,6 @@ const styles = `
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--bg-color);
   color: var(--text-primary);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -71,11 +70,11 @@ body {
 .testimonial-section {
   position: relative;
   padding: clamp(60px, 12vh, 140px) 0;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
+  background: transparent;
 }
 
 .glow {
@@ -90,13 +89,13 @@ body {
 }
 
 .glow-blue {
-  background: var(--cyan-glow);
+  background: rgba(0, 160, 220, 0.55);
   top: 10%;
   left: -10vw;
 }
 
 .glow-amber {
-  background: #ffb347;
+  background: rgba(0, 200, 230, 0.35);
   bottom: 10%;
   right: -10vw;
 }
@@ -129,19 +128,11 @@ body {
 
 .gradient-heading {
   font-size: clamp(1.8rem,7vw,4rem);
-  font-weight: 700;
-  letter-spacing: -.02em;
+  font-weight: 800;
+  letter-spacing: -.03em;
   line-height: 1.2;
   margin-bottom: clamp(16px,3vw,24px);
-  background: linear-gradient(
-    135deg,
-    var(--cyan-glow),
-    var(--lime-glow)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+  color: #ffffff;
   max-width: 90vw;
 }
 
@@ -186,11 +177,12 @@ body {
 
 .card {
   width: 440px;
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  background: rgba(13, 40, 65, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 24px;
   padding: clamp(20px,4vw,32px);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   transition: all .4s ease;
   display: flex;
   flex-direction: column;
@@ -241,10 +233,10 @@ body {
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
     transform: translateY(-8px);
-    border-color: rgba(255,255,255,.15);
+    border-color: rgba(255, 255, 255, 0.75);
     box-shadow:
-      0 16px 40px rgba(0,0,0,.4),
-      0 0 30px rgba(0,229,255,.08);
+      0 16px 40px rgba(0,0,0,.5),
+      0 0 30px rgba(0, 180, 230, 0.12);
   }
 
   .scroller-inner:hover {
