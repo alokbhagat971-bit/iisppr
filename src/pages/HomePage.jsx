@@ -14,8 +14,10 @@ export default function Homepage() {
       <HeroSection />
       <CourseDifferentPage />
       <LandingSections />
-      <Testimonials/>
-      <Faq />
+      <div className="dark-zone">
+        <Testimonials/>
+        <Faq />
+      </div>
     </>
   );
 }
