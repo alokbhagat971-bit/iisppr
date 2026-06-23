@@ -236,13 +236,13 @@ export default function Navbar({
             {/* CTA */}
             {ctaText && (
 
-              <button
-                onClick={onCtaClick}
-                className="hidden lg:inline-flex items-center justify-center px-8 py-3 rounded-full font-sans text-xs font-bold uppercase tracking-[0.2em] text-cyan-accent border-2 border-cyan-accent/35 bg-cyan-accent/10 hover:bg-cyan-accent hover:text-bg-dark hover:border-cyan-accent hover:shadow-[0_0_30px_rgba(0,213,224,0.6)] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-300 cursor-pointer"
-              >
-                {ctaText}
-              </button>
-
+             <button
+               onClick={onCtaClick}
+               style={{ paddingLeft: '1.7rem', paddingRight: '1.7rem', paddingTop: '0.5rem', paddingBottom: '0.5rem' }}
+               className="hidden lg:inline-flex items-center justify-center rounded-full font-sans text-xs font-bold uppercase tracking-[0.2em] text-cyan-accent border-2 border-cyan-accent/35 bg-cyan-accent/10 hover:bg-cyan-accent hover:text-bg-dark hover:border-cyan-accent hover:shadow-[0_0_30px_rgba(0,213,224,0.6)] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-300 cursor-pointer"
+             >
+               {ctaText}
+             </button>     
             )}
 
             {/* Mobile Hamburger */}
