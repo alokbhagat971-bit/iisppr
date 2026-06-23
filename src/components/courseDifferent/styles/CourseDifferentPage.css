@@ -21,16 +21,7 @@
   overflow: hidden;
   width: 100%;
   box-sizing: border-box;
-  background:
-    linear-gradient(
-      180deg,
-      #080808 0%,
-      #090908 30%,
-      #0b0a07 55%,
-      #0d0b06 72%,
-      #090907 88%,
-      #080806 100%
-    );
+  background: transparent;
 }
 
 /* ── BG planet arc image ── */

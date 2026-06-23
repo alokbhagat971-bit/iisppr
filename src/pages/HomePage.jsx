@@ -4,10 +4,12 @@ import CourseDifferentPage from "../components/CourseDifferentPage";
 import LandingSections from "../components/LandingSections";
 import Faq from "../components/Faq";
 import Testimonials from "../components/Testimonials";
+import InteractiveBackground from "../components/InteractiveBackground";
 
 export default function Homepage() {
   return (
     <>
+      <InteractiveBackground />
       <Navbar />
       <HeroSection />
       <CourseDifferentPage />
@@ -17,3 +19,4 @@ export default function Homepage() {
     </>
   );
 }
+

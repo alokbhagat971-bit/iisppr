@@ -130,7 +130,7 @@ export default function Slider() {
           width: 100%;
           min-height: 100vh;
           min-height: 100dvh;
-          background-color: #02060B;
+          background-color: transparent;
           overflow: hidden;
         }
 
@@ -140,7 +140,7 @@ export default function Slider() {
           min-height: 100vh;
           min-height: 100dvh;
           overflow: hidden;
-          background-color: #02060B;
+          background-color: transparent;
         }
 
         /* ── Slide layers ── */

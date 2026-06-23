@@ -9,7 +9,7 @@ const css = `
     min-height: 100vh;
     min-height: 100dvh;
     overflow: hidden;
-    background: #02060B;
+    background: transparent;
   }
   @media (max-width: 768px) {
     .hs-wrap {
