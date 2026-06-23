@@ -489,7 +489,7 @@
 ══════════════════════════════════════════════════════════ */
 .audience-section {
   padding: var(--space-3xl) var(--space-xl);
-  background: radial-gradient(ellipse 800px 400px at 50% 100%, rgba(20,12,0,0.9) 0%, transparent 70%);
+  background: transparent;
 }
 
 .audience-inner {
@@ -721,11 +721,59 @@
 }
 
 /* ══════════════════════════════════════════════════════════
+   DARK ZONE — Testimonials + FAQ unified navy-blue canvas
+══════════════════════════════════════════════════════════ */
+.dark-zone {
+  position: relative;
+  overflow: hidden;
+  /* Navy blue base matching the image: deep dark centre, lighter steel-blue spotlight */
+  background:
+    radial-gradient(ellipse 75% 55% at 50% 35%, #0d2133 0%, #07111a 55%, #040c12 100%),
+    #040c12;
+}
+
+/* Subtle dot-grid texture */
+.dark-zone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(0, 180, 230, 0.06) 1px, transparent 1px);
+  background-size: 38px 38px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Multi-layered soft blue/cyan glows */
+.dark-zone::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 18% 25%, rgba(0, 160, 220, 0.10) 0%, transparent 45%),
+    radial-gradient(circle at 82% 70%, rgba(0, 210, 200, 0.07) 0%, transparent 40%),
+    radial-gradient(circle at 50% 5%,  rgba(13, 55, 80, 0.60) 0%, transparent 50%),
+    radial-gradient(circle at 50% 100%, rgba(4, 16, 24, 0.80) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Elegant top divider line to separate from warm amber sections above */
+.dark-zone > *:first-child::before {
+  display: none;
+}
+
+/* Ensure children stack above pseudo-elements */
+.dark-zone > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════════════════════
    TESTIMONIALS
 ══════════════════════════════════════════════════════════ */
 .testimonials-section {
   padding: var(--space-3xl) var(--space-xl);
-  background: radial-gradient(ellipse 900px 500px at 50% 50%, rgba(20,12,0,0.8) 0%, transparent 70%);
+  background: transparent;
 }
 
 .testimonials-inner {
@@ -818,6 +866,8 @@
 ══════════════════════════════════════════════════════════ */
 .faq-section {
   padding: var(--space-3xl) var(--space-xl);
+  background: transparent;
+  padding-bottom: calc(var(--space-3xl) * 1.25);
 }
 
 .faq-inner {
@@ -837,15 +887,23 @@
 }
 
 .faq-item {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(10, 35, 58, 0.60);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: var(--radius-md);
   overflow: hidden;
-  transition: border-color var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.faq-item:hover {
+  border-color: rgba(255, 255, 255, 0.60);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
 }
 
 .faq-item--open {
-  border-color: rgba(232, 160, 32, 0.3);
+  border-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.20);
 }
 
 .faq-question {
@@ -872,18 +930,18 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(0, 180, 230, 0.08);
+  border: 1px solid rgba(0, 180, 230, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-yellow);
+  color: #00c8f0;
   flex-shrink: 0;
   transition: background var(--transition-fast), transform var(--transition-fast);
 }
 
 .faq-item--open .faq-question__icon {
-  background: rgba(232, 160, 32, 0.14);
+  background: rgba(0, 180, 230, 0.16);
 }
 
 .faq-answer {
@@ -1127,7 +1185,7 @@
 ══════════════════════════════════════════════════════════ */
 .photo-strip-section {
   padding: var(--space-3xl) var(--space-xl);
-  background: radial-gradient(ellipse 900px 400px at 50% 0%, rgba(20,12,0,0.8) 0%, transparent 65%);
+  background: transparent;
 }
 
 .photo-strip-inner {

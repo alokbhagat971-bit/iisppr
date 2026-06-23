@@ -28,7 +28,7 @@ html, body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #02060B;
+  background-color: transparent;
 }
 
 /* Custom premium scrollbar */
@@ -46,3 +46,17 @@ html, body {
 ::-webkit-scrollbar-thumb:hover {
   background: #8A919B;
 }
+
+/* Ensure sections stack cleanly above the interactive background (which is at z-index: 1) */
+.hs-wrap,
+.page,
+.stats-section,
+.audience-section,
+.curriculum-section,
+.testimonial-section,
+.faq-section,
+.final-cta-section {
+  position: relative;
+  z-index: 2;
+}
+
